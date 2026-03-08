@@ -28,7 +28,7 @@ public class SortServiceImpl implements SortService  {
     }
 
     @Override
-    public MyArray selectionSort(MyArray myArray) throws MyException{
+    public MyArray selectionSort(MyArray myArray) throws MyException {
         int[] tempData = myArray.getArray();
 
         for (int i = 0; i < tempData.length - 1; i++) {
@@ -40,7 +40,6 @@ public class SortServiceImpl implements SortService  {
                 }
             }
         }
-
         return new MyArray(tempData);
     }
 }

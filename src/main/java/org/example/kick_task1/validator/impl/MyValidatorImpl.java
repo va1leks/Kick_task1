@@ -6,10 +6,12 @@ public class MyValidatorImpl implements MyValidator {
 
     @Override
     public boolean isValid(String line) {
-        if(line == null || line.isEmpty())
+        if (line == null || line.isEmpty()) {
             return false;
-        if (line.matches(".*[^\\d\\s-].*|.*-\\D"))
+        }
+        if (line.matches(".*[^\\d\\s-].*|.*-\\D")) {
             return false;
+        }
         return true;
     }
 }

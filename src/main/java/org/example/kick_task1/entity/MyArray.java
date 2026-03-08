@@ -9,55 +9,56 @@ public class MyArray {
     private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
     private int[] array;
 
-    public MyArray(int[] array) throws MyException{
+    public MyArray(int[] array) throws MyException {
         if (array == null) {
-           throw new MyException("array is null");
+            throw new MyException("array is null");
         }
         this.array = array.clone();
-        logger.info("Array created and initialized: {}",this.toString());
+        logger.info("Array created and initialized: {}", this.toString());
     }
 
     public MyArray(int length) throws MyException {
         if (length < 0) {
-            logger.error("Invalid array length: {}",length);
+            logger.error("Invalid array length: {}", length);
             throw new MyException("Invalid array length");
         }
         array = new int[length];
-        logger.info("Array created: {}",array.length);
+        logger.info("Array created: {}", array.length);
     }
 
     public int getId() {
-        logger.info("getId: {}",id);
+        logger.info("getId: {}", id);
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-        logger.info("Set new id: {}",id);
+        logger.info("Set new id: {}", id);
     }
 
     public int[] getArray() {
-        logger.info("getArray: {}",this.toString());
+        logger.info("getArray: {}", this.toString());
         return array.clone();
     }
 
     public void setArray(int[] array) {
         this.array = array.clone();
-        logger.info("Set new array: {}",this.toString());
+        logger.info("Set new array: {}", this.toString());
     }
 
     public int getLength() {
-        logger.info("getLength: {}",array.length);
+        logger.info("getLength: {}", array.length);
         return array.length;
     }
 
     public int get(int index) throws MyException {
         if (index < 0 || index >= array.length) {
-            logger.error("Index out of bounds: {}",index);
+            logger.error("Index out of bounds: {}", index);
             throw new MyException("Index out of bounds");
         }
         return array[index];
     }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -70,9 +71,9 @@ public class MyArray {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof MyArray && ((MyArray) obj).getArray().length == array.length) {
+        if (obj instanceof MyArray && ((MyArray) obj).getArray().length == array.length) {
             for (int i = 0; i < array.length; i++) {
-                if(array[i] != ((MyArray) obj).getArray()[i]) {
+                if (array[i] != ((MyArray) obj).getArray()[i]) {
                     return false;
                 }
             }
@@ -83,12 +84,14 @@ public class MyArray {
 
     @Override
     public int hashCode() {
-        if(array.length == 0) return 0;
+        if (array.length == 0) {
+            return 0;
+        }
 
         int hash = 0;
 
         for (int i = 0; i < array.length; i++) {
-            hash += array[i]*(i+1);
+            hash += array[i] * (i + 1);
         }
         return hash;
     }
