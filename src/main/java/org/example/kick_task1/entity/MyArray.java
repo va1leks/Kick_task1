@@ -9,6 +9,8 @@ public class MyArray {
     private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
     private int[] array;
 
+    public MyArray() {}
+
     public MyArray(int[] array) throws MyException {
         if (array == null) {
             throw new MyException("array is null");
