@@ -4,6 +4,8 @@ import org.example.kick_task1.exception.MyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+
 public class MyArray {
     private int id;
     private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
@@ -54,7 +56,7 @@ public class MyArray {
     }
 
     public int get(int index) throws MyException {
-        if (index < 0 || index >= array.length) {
+        if (index < 0 || index > array.length) {
             logger.error("Index out of bounds: {}", index);
             throw new MyException("Index out of bounds");
         }
@@ -73,28 +75,26 @@ public class MyArray {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof MyArray && ((MyArray) obj).getArray().length == array.length) {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] != ((MyArray) obj).getArray()[i]) {
-                    return false;
-                }
-            }
+        if (this == obj) {
             return true;
         }
-        return false;
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        MyArray other = (MyArray) obj;
+        if (array.length != other.getArray().length) {
+            return false;
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != other.getArray()[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public int hashCode() {
-        if (array.length == 0) {
-            return 0;
-        }
-
-        int hash = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            hash += array[i] * (i + 1);
-        }
-        return hash;
+        return Arrays.hashCode(array);
     }
 }
