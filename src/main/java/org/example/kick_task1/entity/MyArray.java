@@ -56,7 +56,7 @@ public class MyArray {
     }
 
     public int get(int index) throws MyException {
-        if (index < 0 || index > array.length) {
+        if (index < 0 || index >= array.length) {
             logger.error("Index out of bounds: {}", index);
             throw new MyException("Index out of bounds");
         }
