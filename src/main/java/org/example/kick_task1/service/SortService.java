@@ -5,7 +5,7 @@ import org.example.kick_task1.exception.MyException;
 
 public interface SortService {
 
-    MyArray bubbleSort(MyArray myArray) throws MyException;
+  MyArray bubbleSort(MyArray myArray) throws MyException;
 
-    MyArray selectionSort(MyArray myArray) throws MyException;
+  MyArray selectionSort(MyArray myArray) throws MyException;
 }

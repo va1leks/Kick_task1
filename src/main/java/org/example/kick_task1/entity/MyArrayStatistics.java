@@ -1,9 +1,13 @@
 package org.example.kick_task1.entity;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
 
 public class MyArrayStatistics {
+  private static final Logger logger = LoggerFactory.getLogger(MyArrayStatistics.class);
   private int max;
   private int min;
   private int sum;
@@ -23,6 +27,7 @@ public class MyArrayStatistics {
 
   public void setMax(int max) {
     this.max = max;
+    logger.info("set max: {}", max);
   }
 
   public int getMin() {
@@ -31,6 +36,7 @@ public class MyArrayStatistics {
 
   public void setMin(int min) {
     this.min = min;
+    logger.info("set min: {}", max);
   }
 
   public int getSum() {
@@ -39,6 +45,7 @@ public class MyArrayStatistics {
 
   public void setSum(int sum) {
     this.sum = sum;
+    logger.info("set sum: {}", max);
   }
 
   public double getAverage() {
@@ -47,17 +54,15 @@ public class MyArrayStatistics {
 
   public void setAverage(double average) {
     this.average = average;
+    logger.info("set average: {}", max);
   }
 
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder("MyArrayStatistics:");
-    sb.append("max=").append(max);
-    sb.append(", min=").append(min);
-    sb.append(", sum=").append(sum);
-    sb.append(", average=").append(average);
-
-    return sb.toString();
+    return "MyArrayStatistics:" + "max=" + max +
+            ", min=" + min +
+            ", sum=" + sum +
+            ", average=" + average;
   }
 
   @Override

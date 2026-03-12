@@ -3,7 +3,6 @@ package org.example.kick_task1.repository.impl;
 import org.example.kick_task1.entity.MyArray;
 import org.example.kick_task1.repository.MyArrayRepository;
 import org.example.kick_task1.specification.Specification;
-import org.example.kick_task1.warehouse.Warehouse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +16,7 @@ public class MyArrayRepositoryImpl implements MyArrayRepository {
 
   private static final Logger logger = LoggerFactory.getLogger(MyArrayRepositoryImpl.class);
   private static MyArrayRepositoryImpl instance;
-  private List<MyArray> myArrays = new ArrayList<>();
+  private final List<MyArray> myArrays = new ArrayList<>();
 
   public static MyArrayRepository getInstance() {
     if (instance == null) {
@@ -26,7 +25,8 @@ public class MyArrayRepositoryImpl implements MyArrayRepository {
     return instance;
   }
 
-  public MyArrayRepositoryImpl() {}
+  public MyArrayRepositoryImpl() {
+  }
 
   @Override
   public MyArray findById(int id) {
@@ -50,7 +50,7 @@ public class MyArrayRepositoryImpl implements MyArrayRepository {
 
   @Override
   public List<MyArray> findAll() {
-      return new ArrayList<>(this.myArrays);
+    return new ArrayList<>(this.myArrays);
   }
 
   @Override

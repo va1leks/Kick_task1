@@ -6,16 +6,16 @@ import org.example.kick_task1.factory.MyArrayFactory;
 
 public class MyArrayFactoryImpl implements MyArrayFactory {
 
-    @Override
-    public MyArray createArray(int size) throws MyException {
-        return new MyArray(size);
-    }
+  @Override
+  public MyArray createArray(int size) throws MyException {
+    return new MyArray(size);
+  }
 
-    @Override
-    public MyArray createArray(int[] array) throws MyException {
-        if (array == null) {
-            throw new MyException("Array is null");
-        }
-        return new MyArray(array);
+  @Override
+  public MyArray createArray(int[] array) throws MyException {
+    if (array == null) {
+      throw new MyException("Array is null");
     }
+    return new MyArray(array);
+  }
 }

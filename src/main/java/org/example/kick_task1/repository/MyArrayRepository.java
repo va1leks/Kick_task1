@@ -23,9 +23,4 @@ public interface MyArrayRepository {
   List<MyArray> query(Specification spec);
 
   List<MyArray> sort(Comparator<MyArray> comparator);
-
-
-
-
-
 }

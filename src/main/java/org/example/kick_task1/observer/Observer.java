@@ -8,4 +8,5 @@ public interface Observer {
 
   void update(long arrayId, int[] data);
 
+  void update(long arrayId, int max, int min, int sum, double average);
 }

@@ -5,8 +5,7 @@ import org.example.kick_task1.exception.MyException;
 
 public interface MyArrayFactory {
 
-    MyArray createArray(int size) throws MyException;
+  MyArray createArray(int size) throws MyException;
 
-    MyArray createArray(int[] array) throws MyException;
-
+  MyArray createArray(int[] array) throws MyException;
 }
