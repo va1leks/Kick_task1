@@ -10,4 +10,6 @@ public interface OperationService {
     Optional<Integer> getMax(MyArray  myArray);
 
     Optional<Integer> getSum(MyArray myArray);
+
+    Optional<Double> getAverage(MyArray myArray);
 }

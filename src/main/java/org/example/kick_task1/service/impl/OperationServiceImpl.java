@@ -14,7 +14,7 @@ public class OperationServiceImpl implements OperationService {
     @Override
     public Optional<Integer> getMin(MyArray myArray) {
         try {
-            Integer min = myArray.get(0);
+            int min = myArray.get(0);
             for (int i = 0; i < myArray.getLength(); i++) {
                 if (min > myArray.get(i)) {
                     min = myArray.get(i);
@@ -31,7 +31,7 @@ public class OperationServiceImpl implements OperationService {
     @Override
     public Optional<Integer> getMax(MyArray myArray) {
         try {
-            Integer max = myArray.get(0);
+            int max = myArray.get(0);
             for (int i = 0; i < myArray.getLength(); i++) {
                 if (max < myArray.get(i)) {
                     max = myArray.get(i);
@@ -48,7 +48,7 @@ public class OperationServiceImpl implements OperationService {
     @Override
     public Optional<Integer> getSum(MyArray myArray) {
         try {
-            Integer sum = 0;
+            int sum = 0;
             for (int i = 0; i < myArray.getLength(); i++) {
                 sum += myArray.get(i);
             }
@@ -56,5 +56,21 @@ public class OperationServiceImpl implements OperationService {
         } catch (MyException e) {
             return Optional.empty();
         }
+    }
+
+    @Override
+    public Optional<Double> getAverage(MyArray myArray) {
+        if (myArray.getLength() == 0) {
+            return Optional.empty();
+        }
+
+        Optional<Integer> sumOpt = getSum(myArray);
+
+        if (sumOpt.isPresent()) {
+            double average = (double) sumOpt.get() / myArray.getLength();
+            return Optional.of(average);
+        }
+
+        return Optional.empty();
     }
 }

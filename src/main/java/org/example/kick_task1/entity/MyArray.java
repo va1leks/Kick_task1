@@ -1,15 +1,21 @@
 package org.example.kick_task1.entity;
 
 import org.example.kick_task1.exception.MyException;
+import org.example.kick_task1.observer.Observed;
+import org.example.kick_task1.observer.Observer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class MyArray {
-    private int id;
+public class MyArray implements Observed {
+
     private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
+    private long id;
     private int[] array;
+    List<Observer> observers = new ArrayList<>();
 
     public MyArray() {}
 
@@ -18,7 +24,7 @@ public class MyArray {
             throw new MyException("array is null");
         }
         this.array = array.clone();
-        logger.info("Array created and initialized: {}", this.toString());
+        logger.info("Array created and initialized: {}", this);
     }
 
     public MyArray(int length) throws MyException {
@@ -30,28 +36,30 @@ public class MyArray {
         logger.info("Array created: {}", array.length);
     }
 
-    public int getId() {
+    public long getId() {
         logger.info("getId: {}", id);
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
+        notifyObservers();
         logger.info("Set new id: {}", id);
     }
 
     public int[] getArray() {
-        logger.info("getArray: {}", this.toString());
+        logger.info("getArray: {}", this);
         return array.clone();
     }
 
     public void setArray(int[] array) {
         this.array = array.clone();
-        logger.info("Set new array: {}", this.toString());
+        notifyObservers();
+        logger.info("Set new array: {}", this);
     }
 
     public int getLength() {
-        logger.info("getLength: {}", array.length);
+        logger.debug("getLength: {}", array.length);
         return array.length;
     }
 
@@ -66,11 +74,31 @@ public class MyArray {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            str.append(array[i]);
+        for (int j : array) {
+            str.append(j);
             str.append(" ");
         }
         return str.toString();
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        logger.info("addObserver: {}", observer);
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        logger.info("removeObserver: {}", observer);
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        logger.info("notifyObservers: {}", this);
+    for (Observer observer : observers) {
+        observer.update(this);
+ }
     }
 
     @Override
@@ -81,16 +109,8 @@ public class MyArray {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        MyArray other = (MyArray) obj;
-        if (array.length != other.getArray().length) {
-            return false;
-        }
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != other.getArray()[i]) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.equals(((MyArray) obj).getArray(), this.getArray());
+
     }
 
     @Override
