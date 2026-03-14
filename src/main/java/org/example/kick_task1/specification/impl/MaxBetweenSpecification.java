@@ -4,22 +4,23 @@ import org.example.kick_task1.entity.MyArray;
 import org.example.kick_task1.specification.Specification;
 import org.example.kick_task1.warehouse.Warehouse;
 
-public class SumGreaterSpecification implements Specification {
+public class MaxBetweenSpecification implements Specification {
 
-  private final int sum;
+  private final int firstMax;
+  private final int secondMax;
 
-  SumGreaterSpecification(int sum) {
-    this.sum = sum;
+  MaxBetweenSpecification(int firstMax, int secondMax) {
+    this.firstMax = firstMax;
+    this.secondMax = secondMax;
   }
 
   @Override
   public boolean isSatisfiedBy(MyArray item) {
     var state = Warehouse.getInstance().get(item.getId());
-
     if (state==null) {
       return false;
     }
-
-    return state.getSum()>sum;
+    return firstMax < state.getMax() && secondMax > state.getMin();
   }
+
 }

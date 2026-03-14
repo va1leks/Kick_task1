@@ -1,6 +1,6 @@
 package org.example.kick_task1.observer;
 
-public interface Observed {
+public interface Observable {
 
   void addObserver(Observer observer);
 

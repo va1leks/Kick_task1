@@ -1,5 +1,6 @@
 package org.example.kick_task1.comparator;
 
+import org.apache.logging.log4j.util.PropertySource;
 import org.example.kick_task1.entity.MyArray;
 
 import java.util.Comparator;

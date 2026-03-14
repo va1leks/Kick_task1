@@ -4,22 +4,21 @@ import org.example.kick_task1.entity.MyArray;
 import org.example.kick_task1.specification.Specification;
 import org.example.kick_task1.warehouse.Warehouse;
 
-public class SumGreaterSpecification implements Specification {
+public class MinLessSpecification implements Specification {
 
-  private final int sum;
+  private final int min;
 
-  SumGreaterSpecification(int sum) {
-    this.sum = sum;
+  MinLessSpecification(int min) {
+    this.min = min;
   }
 
   @Override
   public boolean isSatisfiedBy(MyArray item) {
     var state = Warehouse.getInstance().get(item.getId());
-
     if (state==null) {
       return false;
     }
-
-    return state.getSum()>sum;
+    return state.getMin() < min;
   }
+
 }

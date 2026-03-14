@@ -1,7 +1,7 @@
 package org.example.kick_task1.entity;
 
 import org.example.kick_task1.exception.MyException;
-import org.example.kick_task1.observer.Observed;
+import org.example.kick_task1.observer.Observable;
 import org.example.kick_task1.observer.Observer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MyArray implements Observed {
+public class MyArray implements Observable {
 
   private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
   private long id;
