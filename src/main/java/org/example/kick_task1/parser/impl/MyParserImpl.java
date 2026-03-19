@@ -13,8 +13,6 @@ public class MyParserImpl implements MyParser {
 
   private static final Logger logger = LoggerFactory.getLogger(MyParserImpl.class);
 
-  private static final String LINE_REGEX = "-?\\d+";
-
   public MyParserImpl() {
   }
 
