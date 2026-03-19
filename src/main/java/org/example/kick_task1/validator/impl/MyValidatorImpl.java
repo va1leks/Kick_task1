@@ -9,6 +9,6 @@ public class MyValidatorImpl implements MyValidator {
     if (line == null || line.isEmpty()) {
       return false;
     }
-    return !line.matches(".*[^\\d\\s-].*|.*-\\D");
+    return !line.matches(VALID_REGEX);
   }
 }
