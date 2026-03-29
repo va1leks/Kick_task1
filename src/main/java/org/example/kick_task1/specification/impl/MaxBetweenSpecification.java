@@ -1,6 +1,6 @@
 package org.example.kick_task1.specification.impl;
 
-import org.example.kick_task1.entity.MyArray;
+import org.example.kick_task1.entity.IntArray;
 import org.example.kick_task1.specification.Specification;
 import org.example.kick_task1.warehouse.Warehouse;
 
@@ -15,7 +15,7 @@ public class MaxBetweenSpecification implements Specification {
   }
 
   @Override
-  public boolean isSatisfiedBy(MyArray item) {
+  public boolean isSatisfiedBy(IntArray item) {
     var state = Warehouse.getInstance().get(item.getId());
     if (state==null) {
       return false;

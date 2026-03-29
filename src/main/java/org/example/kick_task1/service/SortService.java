@@ -1,11 +1,11 @@
 package org.example.kick_task1.service;
 
-import org.example.kick_task1.entity.MyArray;
-import org.example.kick_task1.exception.MyException;
+import org.example.kick_task1.entity.IntArray;
+import org.example.kick_task1.exception.IntException;
 
 public interface SortService {
 
-  MyArray bubbleSort(MyArray myArray) throws MyException;
+  IntArray bubbleSort(IntArray intArray) throws IntException;
 
-  MyArray selectionSort(MyArray myArray) throws MyException;
+  IntArray selectionSort(IntArray intArray) throws IntException;
 }

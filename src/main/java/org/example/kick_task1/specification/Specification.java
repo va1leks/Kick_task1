@@ -1,10 +1,10 @@
 package org.example.kick_task1.specification;
 
-import org.example.kick_task1.entity.MyArray;
+import org.example.kick_task1.entity.IntArray;
 
 public interface Specification {
 
-    boolean isSatisfiedBy(MyArray item);
+    boolean isSatisfiedBy(IntArray item);
 
     default Specification or(Specification spec) {
         return item->this.isSatisfiedBy(item)||spec.isSatisfiedBy(item);

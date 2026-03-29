@@ -1,6 +1,6 @@
 package org.example.kick_task1.parser.impl;
 
-import org.example.kick_task1.parser.MyParser;
+import org.example.kick_task1.parser.IntParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MyParserImpl implements MyParser {
+public class IntParserImpl implements IntParser {
 
-  private static final Logger logger = LoggerFactory.getLogger(MyParserImpl.class);
+  private static final Logger logger = LoggerFactory.getLogger(IntParserImpl.class);
 
-  public MyParserImpl() {
+  public IntParserImpl() {
   }
 
   @Override

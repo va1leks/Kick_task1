@@ -1,16 +1,16 @@
 package org.example.kick_task1.parser;
 
-import org.example.kick_task1.parser.impl.MyParserImpl;
+import org.example.kick_task1.parser.impl.IntParserImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MyParserImplTest {
-    private MyParserImpl parser;
+class IntParserImplTest {
+    private IntParserImpl parser;
 
     @BeforeEach
     void setUp() {
-        parser = new MyParserImpl();
+        parser = new IntParserImpl();
     }
 
     @Test

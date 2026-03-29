@@ -6,15 +6,15 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
-public class MyArrayStatistics {
-  private static final Logger logger = LoggerFactory.getLogger(MyArrayStatistics.class);
+public class IntArrayStatistics {
+  private static final Logger logger = LoggerFactory.getLogger(IntArrayStatistics.class);
   private int max;
   private int min;
   private int sum;
   private double average;
 
 
-  public MyArrayStatistics(int min, int max, int sum, double average) {
+  public IntArrayStatistics(int min, int max, int sum, double average) {
     this.min = min;
     this.max = max;
     this.sum = sum;
@@ -59,7 +59,7 @@ public class MyArrayStatistics {
 
   @Override
   public String toString() {
-    return "MyArrayStatistics:" + "max=" + max +
+    return "IntArrayStatistics:" + "max=" + max +
             ", min=" + min +
             ", sum=" + sum +
             ", average=" + average;
@@ -75,7 +75,7 @@ public class MyArrayStatistics {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    MyArrayStatistics that = (MyArrayStatistics) o;
+    IntArrayStatistics that = (IntArrayStatistics) o;
 
     if (max != that.max) return false;
     if (min != that.min) return false;

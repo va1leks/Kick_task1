@@ -1,14 +1,14 @@
 package org.example.kick_task1.service.impl;
 
-import org.example.kick_task1.entity.MyArray;
-import org.example.kick_task1.exception.MyException;
+import org.example.kick_task1.entity.IntArray;
+import org.example.kick_task1.exception.IntException;
 import org.example.kick_task1.service.SortService;
 
 public class SortServiceImpl implements SortService {
 
   @Override
-  public MyArray bubbleSort(MyArray myArray) throws MyException {
-    int[] tempData = myArray.getArray();
+  public IntArray bubbleSort(IntArray intArray) throws IntException {
+    int[] tempData = intArray.getArray();
     boolean swapped;
     for (int i = 0; i < tempData.length - 1; i++) {
       swapped = false;
@@ -24,12 +24,12 @@ public class SortServiceImpl implements SortService {
         break;
       }
     }
-    return new MyArray(tempData);
+    return new IntArray(tempData);
   }
 
   @Override
-  public MyArray selectionSort(MyArray myArray) throws MyException {
-    int[] tempData = myArray.getArray();
+  public IntArray selectionSort(IntArray intArray) throws IntException {
+    int[] tempData = intArray.getArray();
 
     for (int i = 0; i < tempData.length - 1; i++) {
       for (int j = i + 1; j < tempData.length; j++) {
@@ -40,6 +40,6 @@ public class SortServiceImpl implements SortService {
         }
       }
     }
-    return new MyArray(tempData);
+    return new IntArray(tempData);
   }
 }

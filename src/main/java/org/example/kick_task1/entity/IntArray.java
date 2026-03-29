@@ -1,6 +1,6 @@
 package org.example.kick_task1.entity;
 
-import org.example.kick_task1.exception.MyException;
+import org.example.kick_task1.exception.IntException;
 import org.example.kick_task1.observer.Observable;
 import org.example.kick_task1.observer.Observer;
 import org.slf4j.Logger;
@@ -10,28 +10,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MyArray implements Observable {
+public class IntArray implements Observable {
 
-  private static final Logger logger = LoggerFactory.getLogger(MyArray.class);
+  private static final Logger logger = LoggerFactory.getLogger(IntArray.class);
   private long id;
   private int[] array;
   List<Observer> observers = new ArrayList<>();
 
-  public MyArray() {
+  public IntArray() {
   }
 
-  public MyArray(int[] array) throws MyException {
+  public IntArray(int[] array) throws IntException {
     if (array == null) {
-      throw new MyException("array is null");
+      throw new IntException("array is null");
     }
     this.array = array.clone();
     logger.info("Array created and initialized: {}", this);
   }
 
-  public MyArray(int length) throws MyException {
+  public IntArray(int length) throws IntException {
     if (length < 0) {
       logger.error("Invalid array length: {}", length);
-      throw new MyException("Invalid array length");
+      throw new IntException("Invalid array length");
     }
     array = new int[length];
     logger.info("Array created: {}", array.length);
@@ -64,10 +64,10 @@ public class MyArray implements Observable {
     return array.length;
   }
 
-  public int get(int index) throws MyException {
+  public int get(int index) throws IntException {
     if (index < 0 || index >= array.length) {
       logger.error("Index out of bounds: {}", index);
-      throw new MyException("Index out of bounds");
+      throw new IntException("Index out of bounds");
     }
     return array[index];
   }
@@ -110,7 +110,7 @@ public class MyArray implements Observable {
     if (obj == null || getClass() != obj.getClass()) {
       return false;
     }
-    return Arrays.equals(((MyArray) obj).getArray(), this.getArray());
+    return Arrays.equals(((IntArray) obj).getArray(), this.getArray());
 
   }
 

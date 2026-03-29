@@ -1,7 +1,7 @@
 package org.example.kick_task1.reader;
 
-import org.example.kick_task1.exception.MyException;
-import org.example.kick_task1.reader.impl.MyFileReaderImpl;
+import org.example.kick_task1.exception.IntException;
+import org.example.kick_task1.reader.impl.CustomFileReaderImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -13,16 +13,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MyFileReaderImplTest {
-    private MyFileReaderImpl fileReader;
+class CustomFileReaderImplTest {
+    private CustomFileReaderImpl fileReader;
 
     @BeforeEach
     void setUp() {
-        fileReader = new MyFileReaderImpl();
+        fileReader = new CustomFileReaderImpl();
     }
 
     @Test
-    void readFileShouldReturnLines(@TempDir Path tempDir) throws IOException, MyException {
+    void readFileShouldReturnLines(@TempDir Path tempDir) throws IOException, IntException {
         // Создаем временный файл
         Path testFile = tempDir.resolve("test.txt");
         List<String> expectedLines = List.of("line1", "line2", "line3");
@@ -36,13 +36,13 @@ class MyFileReaderImplTest {
 
     @Test
     void readFileShouldThrowExceptionWhenFileNotFound() {
-        assertThrows(MyException.class, () ->
+        assertThrows(IntException.class, () ->
                 fileReader.readFile("nonexistent_file.txt")
         );
     }
 
     @Test
-    void readFileShouldHandleEmptyFile(@TempDir Path tempDir) throws IOException, MyException {
+    void readFileShouldHandleEmptyFile(@TempDir Path tempDir) throws IOException, IntException {
         Path emptyFile = tempDir.resolve("empty.txt");
         Files.createFile(emptyFile);
 

@@ -1,9 +1,9 @@
 package org.example.kick_task1.reader.impl;
 
-import org.example.kick_task1.exception.MyException;
+import org.example.kick_task1.exception.IntException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.example.kick_task1.reader.MyFileReader;
+import org.example.kick_task1.reader.CustomFileReader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,21 +11,21 @@ import java.nio.file.Paths;
 import java.util.List;
 
 
-public class MyFileReaderImpl implements MyFileReader {
+public class CustomFileReaderImpl implements CustomFileReader {
 
-  private static final Logger logger = LoggerFactory.getLogger(MyFileReaderImpl.class);
+  private static final Logger logger = LoggerFactory.getLogger(CustomFileReaderImpl.class);
 
-  public MyFileReaderImpl() {
+  public CustomFileReaderImpl() {
   }
 
   @Override
-  public List<String> readFile(String fileName) throws MyException {
+  public List<String> readFile(String fileName) throws IntException {
     logger.info("Reading file {}", fileName);
     try {
       return Files.readAllLines(Paths.get(fileName));
     } catch (IOException e) {
       logger.error("Error reading file: {}", fileName);
-      throw new MyException("File read error", e);
+      throw new IntException("File read error", e);
     }
   }
 }

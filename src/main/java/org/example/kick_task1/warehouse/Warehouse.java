@@ -1,7 +1,6 @@
 package org.example.kick_task1.warehouse;
 
-import org.example.kick_task1.entity.MyArray;
-import org.example.kick_task1.entity.MyArrayStatistics;
+import org.example.kick_task1.entity.IntArrayStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +11,7 @@ public class Warehouse {
 
   private static final Logger logger = LoggerFactory.getLogger(Warehouse.class);
   private static Warehouse instance;
-  private final Map<Long, MyArrayStatistics> myArrays = new HashMap<>();
+  private final Map<Long, IntArrayStatistics> myArrays = new HashMap<>();
 
   private Warehouse() {}
 
@@ -23,11 +22,11 @@ public class Warehouse {
     return instance;
   }
 
-  public void put(long id, MyArrayStatistics array) {
+  public void put(long id, IntArrayStatistics array) {
     myArrays.put(id, array);
   }
 
-  public MyArrayStatistics get(long id) {
+  public IntArrayStatistics get(long id) {
     return myArrays.get(id);
   }
 
