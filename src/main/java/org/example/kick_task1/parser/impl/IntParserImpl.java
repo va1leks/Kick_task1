@@ -13,9 +13,6 @@ public class IntParserImpl implements IntParser {
 
   private static final Logger logger = LoggerFactory.getLogger(IntParserImpl.class);
 
-  public IntParserImpl() {
-  }
-
   @Override
   public int[] parseIntArray(String data) {
 

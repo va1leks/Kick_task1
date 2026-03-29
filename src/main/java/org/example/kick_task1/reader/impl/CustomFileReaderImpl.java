@@ -15,9 +15,6 @@ public class CustomFileReaderImpl implements CustomFileReader {
 
   private static final Logger logger = LoggerFactory.getLogger(CustomFileReaderImpl.class);
 
-  public CustomFileReaderImpl() {
-  }
-
   @Override
   public List<String> readFile(String fileName) throws IntException {
     logger.info("Reading file {}", fileName);

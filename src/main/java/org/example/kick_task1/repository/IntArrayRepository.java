@@ -37,9 +37,6 @@ public class IntArrayRepository {
     }
   }
 
-  public IntArrayRepository() {
-  }
-
   public Optional<IntArray> update(IntArray intArray) {
     for (int i = 0; i < intArrays.size(); i++) {
       if (intArrays.get(i).getId() == intArray.getId()) {
